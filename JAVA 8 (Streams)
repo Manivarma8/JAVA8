@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class Manivarman{
+	int id;
+	String name;
+	int price;
+
+
+	public Manivarman(int id, String name, int price) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.price = price;
+}
+
+	public static void main(String[] args) {
+List<Manivarman> box1 = new ArrayList();
+box1.add(new Manivarman(1,"Java", 300000));
+box1.add(new Manivarman(2,"Martial Artist", 50000));
+box1.add(new Manivarman(3,"Gym", 30000));
+box1.add(new Manivarman(4,"Band", 10000));
+box1.add(new Manivarman(5,"Youtuber",50000));
+box1.add(new Manivarman(6,"Real Estate", 200000));
+box1.add(new Manivarman(1,"Business", 1000000));
+List box2 =  box1.stream()
+				.filter(m -> m.price > 10000)
+				.map(n -> n.name + " -> " +n.price)
+				.collect(Collectors.toList());
+System.out.println(box2);
+	}
+
+}
